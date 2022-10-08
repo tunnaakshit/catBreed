@@ -10,12 +10,16 @@ import UIKit
 class ViewController: UIViewController {
     
     
+    // MARK: - Outlets
     @IBOutlet weak var catListTableView: UITableView!
+    @IBOutlet weak var loader: UIActivityIndicatorView!
     
-    
+    // MARK: Variables
     var catBreedListVM = CatBreedListViewModel()
     var dataSource: [CatBreedListModel] = []
 
+    
+    // MARK: - LifeCycle Functions
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -25,9 +29,11 @@ class ViewController: UIViewController {
         catListTableView.delegate = self
         
         self.bindUI()
-        catBreedListVM.callApi()
+        self.catBreedListVM.fetchCatBreedsData()
     }
     
+    
+    // MARK: - Additional Functions
     func bindUI() {
         catBreedListVM.onSuccess = { [weak self] catBreedModels in
             self?.dataSource = catBreedModels
@@ -39,13 +45,18 @@ class ViewController: UIViewController {
             print(err.localizedDescription)
             
         }
+        
+        catBreedListVM.loaderState = { [weak self] isShown in
+            self?.catListTableView.isHidden = isShown
+            self?.loader.isHidden = !isShown
+        }
     }
     
     func showAlert(message: String) {
         let alert = UIAlertController(title: "Alert", message: message, preferredStyle: UIAlertController.Style.alert)
         alert.addAction(UIAlertAction(title: "Cancle", style: UIAlertAction.Style.cancel, handler: nil))
         alert.addAction(UIAlertAction(title: "Reload", style: UIAlertAction.Style.default, handler: { action  in
-            self.catBreedListVM.callApi()
+            self.catBreedListVM.fetchCatBreedsData()
         }))
         self.present(alert, animated: true, completion: nil)
     }

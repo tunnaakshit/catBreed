@@ -9,15 +9,17 @@ import Foundation
 
 class CatBreedListViewModel {
     
+    // MARK: - Variables
     var catBreedModel: CatBreedModel?
     var carBreedDescriptionModels: [CatBreedDescriptionModel] = []
     var onSuccess: ((_ catBreedList: [CatBreedListModel]) -> Void)?
     var onFailure: ((_ error: Error) -> Void)?
+    var loaderState: ((_ isShown: Bool) -> Void)?
     
     
-    
-    
-    func callApi() {
+    // MARK: - Additional Functions
+    func fetchCatBreedsData() {
+        self.loaderState?(true)
         
         NetworkManager.sharedInstance.executeNetworkRequest(url: "https://api.thecatapi.com/v1/breeds", method: .get, params: nil) { (result: Result<CatBreedModel, Error>) in
             switch result {
@@ -30,9 +32,11 @@ class CatBreedListViewModel {
                     return CatBreedDescriptionModel(model)
                 })
                 self.onSuccess?(catBreedList)
+                self.loaderState?(false)
                 print(res)
             case .failure(let err):
                 self.onFailure?(err)
+                self.loaderState?(false)
                 print(err)
             }
         }

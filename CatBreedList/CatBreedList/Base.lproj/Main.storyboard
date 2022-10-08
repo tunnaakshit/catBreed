@@ -16,6 +16,13 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="4dl-UH-14b">
+                                <rect key="frame" x="182" y="428" width="50" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="4dl-UH-14b" secondAttribute="height" multiplier="1:1" id="2fu-YS-AUX"/>
+                                    <constraint firstAttribute="width" constant="50" id="W0a-oJ-ZIs"/>
+                                </constraints>
+                            </activityIndicatorView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="T9s-F8-q6O">
                                 <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -34,7 +41,9 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="4dl-UH-14b" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="9gn-rz-WmZ"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="T9s-F8-q6O" secondAttribute="bottom" id="A6C-71-TON"/>
+                            <constraint firstItem="4dl-UH-14b" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="Cju-3n-HJe"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="T9s-F8-q6O" secondAttribute="trailing" id="FB3-P2-sGI"/>
                             <constraint firstItem="T9s-F8-q6O" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="SLx-FJ-b89"/>
                             <constraint firstItem="T9s-F8-q6O" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="Vyu-Qc-iSn"/>
@@ -42,6 +51,7 @@
                     </view>
                     <connections>
                         <outlet property="catListTableView" destination="T9s-F8-q6O" id="N4C-5l-UQq"/>
+                        <outlet property="loader" destination="4dl-UH-14b" id="h3G-Oz-Qx1"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -75,7 +85,7 @@
                                     <constraint firstAttribute="width" constant="20" id="Y8I-vK-KT4"/>
                                     <constraint firstAttribute="width" secondItem="aIj-su-DdK" secondAttribute="height" id="amt-Je-twE"/>
                                 </constraints>
-                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="tintColor" systemColor="tintColor"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" image="arrow.backward" catalog="system"/>
                                 <connections>
@@ -119,6 +129,9 @@
         <image name="arrow.backward" catalog="system" width="128" height="98"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="tintColor">
+            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
