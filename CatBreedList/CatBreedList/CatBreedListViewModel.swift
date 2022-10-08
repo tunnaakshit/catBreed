@@ -10,6 +10,7 @@ import Foundation
 class CatBreedListViewModel {
     
     var catBreedModel: CatBreedModel?
+    var carBreedDescriptionModels: [CatBreedDescriptionModel] = []
     var onSuccess: ((_ catBreedList: [CatBreedListModel]) -> Void)?
     var onFailure: ((_ error: Error) -> Void)?
     
@@ -25,6 +26,9 @@ class CatBreedListViewModel {
                 let catBreedList: [CatBreedListModel] = res.map { model in
                     return CatBreedListModel(model)
                 }
+                self.carBreedDescriptionModels = res.map({ model in
+                    return CatBreedDescriptionModel(model)
+                })
                 self.onSuccess?(catBreedList)
                 print(res)
             case .failure(let err):
@@ -33,5 +37,9 @@ class CatBreedListViewModel {
             }
         }
         
+    }
+    
+    func getCatBreedDescriptionData(_ index: Int) -> CatBreedDescriptionModel {
+        return self.carBreedDescriptionModels[index]
     }
 }

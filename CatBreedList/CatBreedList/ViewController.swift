@@ -70,5 +70,13 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
         return 90
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if let vc = self.storyboard?.instantiateViewController(withIdentifier: "CatBreedDescriptionVC") as? CatBreedDescriptionVC {
+            vc.catbreedDescriptionModel = self.catBreedListVM.getCatBreedDescriptionData(indexPath.row)
+            vc.modalPresentationStyle = .fullScreen
+            self.present(vc, animated: true, completion: nil)
+        }
+    }
+    
 }
 
