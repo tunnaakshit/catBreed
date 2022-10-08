@@ -35,9 +35,19 @@ class ViewController: UIViewController {
         }
         
         catBreedListVM.onFailure = { [weak self] err in
+            self?.showAlert(message: err.localizedDescription)
             print(err.localizedDescription)
             
         }
+    }
+    
+    func showAlert(message: String) {
+        let alert = UIAlertController(title: "Alert", message: message, preferredStyle: UIAlertController.Style.alert)
+        alert.addAction(UIAlertAction(title: "Cancle", style: UIAlertAction.Style.cancel, handler: nil))
+        alert.addAction(UIAlertAction(title: "Reload", style: UIAlertAction.Style.default, handler: { action  in
+            self.catBreedListVM.callApi()
+        }))
+        self.present(alert, animated: true, completion: nil)
     }
 
 

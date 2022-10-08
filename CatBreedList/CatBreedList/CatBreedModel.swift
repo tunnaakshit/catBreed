@@ -24,6 +24,5 @@ struct CatBreed: Codable {
 // MARK: - Image
 struct Image: Codable {
     let id: String
-    let width, height: Int
     let url: String
 }
