@@ -73,11 +73,3 @@ class NetworkManager {
 
 
 
-//NetworkManager.sharedInstance.executeNetworkRequest(url: "https://api.thecatapi.com/v1/breeds", method: .get, params: nil) { (result: Result<CatBreedModel, Error>) in
-//    switch result {
-//    case .success(let res):
-//        print(res)
-//    case .failure(let err):
-//        print(err)
-//    }
-//}

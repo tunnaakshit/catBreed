@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		8240DBAA28F1B75A00832F0A /* CatBreedListConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8240DBA928F1B75A00832F0A /* CatBreedListConstants.swift */; };
 		8240DBAC28F1BEBA00832F0A /* CatBreedModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8240DBAB28F1BEBA00832F0A /* CatBreedModel.swift */; };
+		8240DBAE28F1C65600832F0A /* CatBreedListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8240DBAD28F1C65600832F0A /* CatBreedListModel.swift */; };
+		8240DBB028F1C77300832F0A /* CatBreedListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8240DBAF28F1C77300832F0A /* CatBreedListViewModel.swift */; };
 		82440CB828EF4B6400982663 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82440CB728EF4B6400982663 /* AppDelegate.swift */; };
 		82440CBA28EF4B6400982663 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82440CB928EF4B6400982663 /* SceneDelegate.swift */; };
 		82440CBC28EF4B6400982663 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82440CBB28EF4B6400982663 /* ViewController.swift */; };
@@ -49,6 +51,8 @@
 		7C5B6837D3F1705890C07028 /* Pods_CatBreedListTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CatBreedListTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8240DBA928F1B75A00832F0A /* CatBreedListConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatBreedListConstants.swift; sourceTree = "<group>"; };
 		8240DBAB28F1BEBA00832F0A /* CatBreedModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatBreedModel.swift; sourceTree = "<group>"; };
+		8240DBAD28F1C65600832F0A /* CatBreedListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatBreedListModel.swift; sourceTree = "<group>"; };
+		8240DBAF28F1C77300832F0A /* CatBreedListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatBreedListViewModel.swift; sourceTree = "<group>"; };
 		82440CB428EF4B6400982663 /* CatBreedList.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CatBreedList.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		82440CB728EF4B6400982663 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		82440CB928EF4B6400982663 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -145,6 +149,8 @@
 				82440CEA28EF4BD500982663 /* NetworkManager.swift */,
 				8240DBA928F1B75A00832F0A /* CatBreedListConstants.swift */,
 				8240DBAB28F1BEBA00832F0A /* CatBreedModel.swift */,
+				8240DBAD28F1C65600832F0A /* CatBreedListModel.swift */,
+				8240DBAF28F1C77300832F0A /* CatBreedListViewModel.swift */,
 			);
 			path = CatBreedList;
 			sourceTree = "<group>";
@@ -419,9 +425,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				8240DBAC28F1BEBA00832F0A /* CatBreedModel.swift in Sources */,
+				8240DBAE28F1C65600832F0A /* CatBreedListModel.swift in Sources */,
 				82440CBC28EF4B6400982663 /* ViewController.swift in Sources */,
 				82440CB828EF4B6400982663 /* AppDelegate.swift in Sources */,
 				82440CEB28EF4BD500982663 /* NetworkManager.swift in Sources */,
+				8240DBB028F1C77300832F0A /* CatBreedListViewModel.swift in Sources */,
 				8240DBAA28F1B75A00832F0A /* CatBreedListConstants.swift in Sources */,
 				82440CBA28EF4B6400982663 /* SceneDelegate.swift in Sources */,
 				82440CC228EF4B6400982663 /* CatBreedList.xcdatamodeld in Sources */,
