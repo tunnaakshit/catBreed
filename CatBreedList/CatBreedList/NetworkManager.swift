@@ -18,12 +18,6 @@ class NetworkManager {
     
     public func executeNetworkRequest<T: Codable>(_ api: APIRequest, completion: @escaping (Result<T, Error>) -> Void) {
         
-//        guard reachability.isReachable else {
-//            let err = NSError(domain: NetworkClientErrorDomain, code: NetworkClientErrorCode.network_rechability_error, userInfo: NetworkClientUtility.getUserInfo(value: NetworkClientConstants.networkRechabilityErroMessage) as? [String : Any])
-//            completion(.failure(err))
-//            return
-//        }
-        
         var components = URLComponents()
         components.scheme = CatBreedListConstants.urlScheme
         components.host = api.baseUrl
