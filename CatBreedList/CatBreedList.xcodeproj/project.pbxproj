@@ -150,6 +150,7 @@
 		82440CB628EF4B6400982663 /* CatBreedList */ = {
 			isa = PBXGroup;
 			children = (
+				824FFB8828F29D7C00F8C4B4 /* Supporting Files */,
 				824FFB8728F29CB500F8C4B4 /* Utility */,
 				824FFB8628F29C9D00F8C4B4 /* Constants */,
 				824FFB8528F29BF200F8C4B4 /* Network */,
@@ -157,12 +158,7 @@
 				824FFB8328F29BDC00F8C4B4 /* ViewModels */,
 				824FFB8228F29BD300F8C4B4 /* Models */,
 				824FFB8128F29BC700F8C4B4 /* Controllers */,
-				82440CB728EF4B6400982663 /* AppDelegate.swift */,
-				82440CB928EF4B6400982663 /* SceneDelegate.swift */,
-				82440CC328EF4B6600982663 /* Assets.xcassets */,
-				82440CC528EF4B6600982663 /* LaunchScreen.storyboard */,
 				82440CC828EF4B6600982663 /* Info.plist */,
-				82440CC028EF4B6400982663 /* CatBreedList.xcdatamodeld */,
 			);
 			path = CatBreedList;
 			sourceTree = "<group>";
@@ -244,6 +240,18 @@
 				8240DBB528F1DBAD00832F0A /* ImageviewExtension.swift */,
 			);
 			path = Utility;
+			sourceTree = "<group>";
+		};
+		824FFB8828F29D7C00F8C4B4 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				82440CB728EF4B6400982663 /* AppDelegate.swift */,
+				82440CB928EF4B6400982663 /* SceneDelegate.swift */,
+				82440CC328EF4B6600982663 /* Assets.xcassets */,
+				82440CC528EF4B6600982663 /* LaunchScreen.storyboard */,
+				82440CC028EF4B6400982663 /* CatBreedList.xcdatamodeld */,
+			);
+			path = "Supporting Files";
 			sourceTree = "<group>";
 		};
 		8266FFACE854FA90BB83A0F5 /* Pods */ = {
