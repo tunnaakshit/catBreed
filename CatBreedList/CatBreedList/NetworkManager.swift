@@ -8,8 +8,6 @@
 import Foundation
 import Alamofire
 
-var urlString = "https://api.thecatapi.com/v1/breeds"
-
 class NetworkManager {
     
     static let sharedInstance = NetworkManager()
@@ -18,9 +16,7 @@ class NetworkManager {
         
     }
     
-    
-    
-    public func executeNetworkRequest<T: Codable>(url: String, method: HTTPMethod, params: [String: String]?, completion: @escaping (Result<T, Error>) -> Void) {
+    public func executeNetworkRequest<T: Codable>(_ api: APIRequest, completion: @escaping (Result<T, Error>) -> Void) {
         
 //        guard reachability.isReachable else {
 //            let err = NSError(domain: NetworkClientErrorDomain, code: NetworkClientErrorCode.network_rechability_error, userInfo: NetworkClientUtility.getUserInfo(value: NetworkClientConstants.networkRechabilityErroMessage) as? [String : Any])
@@ -28,11 +24,17 @@ class NetworkManager {
 //            return
 //        }
         
-//        let url = getURL(baseURL: baseUrl, endPoint: endPoint)
+        var components = URLComponents()
+        components.scheme = CatBreedListConstants.urlScheme
+        components.host = api.baseUrl
+        components.path = api.path
+        components.queryItems = [
+            URLQueryItem(name: "api_key", value: api.apiKey)
+        ]
+        let url = components.url
         
-        if let url = URL(string: url) {
-            
-            AF.request(url, method: method, parameters: params, encoding: JSONEncoding.default, headers: nil).responseData(completionHandler: { response in
+        if let url = url {
+            AF.request(url, method: api.method.inHttpMethod(), parameters: api.queryParameters, encoding: api.encoding(), headers: api.getHeaders()).responseData(completionHandler: { response in
                 switch response.result{
                 case .success(let res):
                     if let code = response.response?.statusCode{
@@ -53,22 +55,8 @@ class NetworkManager {
                     completion(.failure(error))
                 }
             })
-            
         }
-        
-        
     }
-    
-//    private func getURL(baseURL: String, endPoint: String) -> URL {
-//        var components = URLComponents()
-//        components.scheme = "https"
-//        components.host = baseURL
-//        components.path = endPoint
-//        if let url = components.url
-//
-//        return url
-//    }
-    
 }
 
 

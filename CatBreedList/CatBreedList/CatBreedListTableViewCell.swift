@@ -15,7 +15,7 @@ class CatBreedListTableViewCell: UITableViewCell {
     
     
     // MARK: - Variables
-    static let identifier = "CatBreedListTableViewCell"
+    static let identifier = CatBreedVCConstants.catBreedListTableViewCell
     
     
     // MARK: - LifeCycle Functionc
@@ -23,12 +23,13 @@ class CatBreedListTableViewCell: UITableViewCell {
         super.awakeFromNib()
         // Initialization code
         self.catImageView.contentMode = .scaleAspectFit
+        self.catImageView.makeRounded()
     }
 
     // MARK: - Additional Functions
     
     static func nib() -> UINib {
-        return UINib(nibName: "CatBreedListTableViewCell", bundle: nil)
+        return UINib(nibName: CatBreedVCConstants.catBreedListTableViewCell, bundle: nil)
     }
     
     func configureCell(with breedName: String, imageUrl: String) {

@@ -53,9 +53,9 @@ class ViewController: UIViewController {
     }
     
     func showAlert(message: String) {
-        let alert = UIAlertController(title: "Alert", message: message, preferredStyle: UIAlertController.Style.alert)
-        alert.addAction(UIAlertAction(title: "Cancle", style: UIAlertAction.Style.cancel, handler: nil))
-        alert.addAction(UIAlertAction(title: "Reload", style: UIAlertAction.Style.default, handler: { action  in
+        let alert = UIAlertController(title: CatBreedVCConstants.alertTitle, message: message, preferredStyle: UIAlertController.Style.alert)
+        alert.addAction(UIAlertAction(title: CatBreedVCConstants.cancleActionTitle, style: UIAlertAction.Style.cancel, handler: nil))
+        alert.addAction(UIAlertAction(title: CatBreedVCConstants.reloadActionTitle, style: UIAlertAction.Style.default, handler: { action  in
             self.catBreedListVM.fetchCatBreedsData()
         }))
         self.present(alert, animated: true, completion: nil)
@@ -82,7 +82,7 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if let vc = self.storyboard?.instantiateViewController(withIdentifier: "CatBreedDescriptionVC") as? CatBreedDescriptionVC {
+        if let vc = self.storyboard?.instantiateViewController(withIdentifier: CatBreedDescriptionVCConstants.catBreedDescriptionVC) as? CatBreedDescriptionVC {
             vc.catbreedDescriptionModel = self.catBreedListVM.getCatBreedDescriptionData(indexPath.row)
             vc.modalPresentationStyle = .fullScreen
             self.present(vc, animated: true, completion: nil)

@@ -21,7 +21,9 @@ class CatBreedListViewModel {
     func fetchCatBreedsData() {
         self.loaderState?(true)
         
-        NetworkManager.sharedInstance.executeNetworkRequest(url: "https://api.thecatapi.com/v1/breeds", method: .get, params: nil) { (result: Result<CatBreedModel, Error>) in
+        let apiRequest = DefaultAPIRequest(baseUrl: CatBreedBaseURL.catBreedBaseURl, path: CatBreedEndPoints.catBreeds, apiKey: CatBreedListConstants.apiKey, method: .GET, headers: [:], parameters: nil)
+        
+        NetworkManager.sharedInstance.executeNetworkRequest(apiRequest) { (result: Result<CatBreedModel, Error>) in
             switch result {
             case .success(let res):
                 self.catBreedModel = res
