@@ -28,6 +28,10 @@ enum CatBreedVCConstants {
     static let catBreedListTableViewCell = "CatBreedListTableViewCell"
 }
 
+enum CatBreedCellConstants {
+    static let catPlaceholderImage = "CatPlaceholder"
+}
+
 enum CatBreedDescriptionVCConstants {
     static let catBreedDescriptionVC = "CatBreedDescriptionVC"
 }

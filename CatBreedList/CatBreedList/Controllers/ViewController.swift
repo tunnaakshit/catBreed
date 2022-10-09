@@ -71,7 +71,7 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell = tableView.dequeueReusableCell(withIdentifier: CatBreedListTableViewCell.identifier, for: indexPath) as? CatBreedListTableViewCell {
-            cell.configureCell(with: self.dataSource[indexPath.row].name, imageUrl: self.dataSource[indexPath.row].image?.url ?? "")
+            cell.configureCell(with: self.dataSource[indexPath.row].name, imageUrl: self.dataSource[indexPath.row].image?.url)
             return cell
         }
         return UITableViewCell()

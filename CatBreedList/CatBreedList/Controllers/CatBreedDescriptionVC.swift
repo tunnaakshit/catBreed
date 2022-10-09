@@ -24,12 +24,17 @@ class CatBreedDescriptionVC: UIViewController {
     // MARK: - LifeCycle Functions
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.catImageView.makeRounded()
         self.configureUI()
     }
     
     // MARK: - Additional Functions
     private func configureUI() {
-        self.catImageView.loadFrom(URLAddress: catbreedDescriptionModel?.image?.url ?? "")
+        self.catImageView.image = UIImage(named: CatBreedCellConstants.catPlaceholderImage)
+        if let url = self.catbreedDescriptionModel?.image?.url {
+            self.catImageView.loadUrl(url)
+        }
+        
         self.catBreed.text = catbreedDescriptionModel?.name
         self.catBreedDescription.text = catbreedDescriptionModel?.description
     }

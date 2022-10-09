@@ -25,6 +25,12 @@ class CatBreedListTableViewCell: UITableViewCell {
         self.catImageView.contentMode = .scaleAspectFit
         self.catImageView.makeRounded()
     }
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        self.catBreedName.text = nil
+        self.catImageView.image = nil
+    }
 
     // MARK: - Additional Functions
     
@@ -32,9 +38,12 @@ class CatBreedListTableViewCell: UITableViewCell {
         return UINib(nibName: CatBreedVCConstants.catBreedListTableViewCell, bundle: nil)
     }
     
-    func configureCell(with breedName: String, imageUrl: String) {
-        self.catBreedName.text = breedName
-        self.catImageView.loadFrom(URLAddress: imageUrl)
+    func configureCell(with breedName: String, imageUrl: String?) {
+        self.catBreedName.text = breedName        
+        self.catImageView.image = UIImage(named: CatBreedCellConstants.catPlaceholderImage)
+        if let url = imageUrl {
+            self.catImageView.loadUrl(url)
+        }
     }
     
 }
